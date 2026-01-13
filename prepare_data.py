@@ -4,7 +4,7 @@ Data preparation script for CSC420 Assignment 1 - CNN Dog Breed Classification.
 
 This script prepares the Stanford Dogs Dataset (SDD) and Dog Breed Images (DBI)
 datasets by filtering to only include the 7 common breeds, renaming folders
-to match, and creating zip files for Google Colab upload.
+to match, and creating zip files.
 """
 
 import logging

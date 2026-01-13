@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0] - 2026-01-13 16:26
+
+### Added
+- Installed `cursor-notebook-mcp` MCP server for Jupyter notebook editing in Cursor
+  - Installed via pipx with Python 3.13
+  - Injected compatible pydantic version (<2.12.0) to fix compatibility issue
+  - Configured in `~/.cursor/mcp.json` with stdio transport
+  - Allowed roots: `/Users/billy/Documents/CSC420-A1-CNN` and `/Users/billy/Documents`
+
+### Configuration
+- MCP server location: `/Users/billy/.local/bin/cursor-notebook-mcp`
+- Transport: stdio (Cursor manages the server automatically)
+- Available tools: notebook_create, notebook_read, notebook_edit_cell, notebook_add_cell, and 20+ more
+
 ## [0.1.0] - 2026-01-13
 
 ### Added
