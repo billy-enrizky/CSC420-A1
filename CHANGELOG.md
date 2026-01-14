@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.6.0] - 2026-01-14 16:35
+
+### Added
+- `report.ipynb`: Hyperparameter tuning for Task II
+  - Grid search over learning rates [0.01, 0.001, 0.0001]
+  - Grid search over optimizers [Adam, SGD with momentum=0.9]
+  - Grid search over weight decay [0, 1e-4, 1e-3]
+  - 5 epochs per configuration for tuning
+  - Heatmap visualization of tuning results
+  - Automatic selection of best hyperparameters for final training
+
+### Changed
+- Training cells now use best hyperparameters from tuning instead of hardcoded values
+- Updated analysis markdown to document hyperparameter tuning process
+
 ## [0.5.1] - 2026-01-14 01:11
 
 ### Fixed
