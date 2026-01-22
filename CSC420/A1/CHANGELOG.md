@@ -2,6 +2,68 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.10.3] - 2026-01-21 22:50
+
+### Updated
+- `report.ipynb`: Task VI Scenario 3 - Comprehensive verification and correction
+  - **Problem Setting**: Explicitly identified as Unsupervised Domain Adaptation (UDA)
+  - **Strategy 1 (MMD)**: Verified - Weighted MMD (Yan et al., CVPR 2017) with Classification EM algorithm
+  - **Strategy 2**: Replaced AdaMatch with **DANN** (Ganin et al., JMLR 2016)
+    - DANN is the foundational method for adversarial domain adaptation
+    - Uses gradient reversal layer to learn domain-invariant features
+    - More appropriate and well-established for UDA setting
+  - **Strategy 3 (Pseudo-labeling)**: Verified - Updated with adaptive confidence thresholds and multi-stage refinement
+  - All strategies verified via web search with proper citations
+
+### Verification Summary
+- MMD: CVPR 2017 paper confirmed (openaccess.thecvf.com)
+- DANN: JMLR 2016 paper confirmed (jmlr.org/papers/volume17/15-239)
+- Pseudo-labeling for UDA: Multiple papers confirmed (APSIPA 2019, MDPI Electronics 2023 review)
+- UDA definition confirmed: labeled source + unlabeled target (ScienceDirect, arXiv:1901.05335)
+
+## [0.10.2] - 2026-01-21 22:47
+
+### Updated
+- `report.ipynb`: Task VI Scenario 3 - Thorough verification of all strategies
+  - **Strategy 1 (MMD)**: Verified - Weighted MMD (Yan et al., CVPR 2017) addresses class weight bias in UDA
+  - **Strategy 2 (Pseudo-labeling)**: Verified - Updated to reference structured prediction (AAAI 2020) and uncertainty-guided methods for handling noisy pseudo-labels in domain adaptation
+  - **Strategy 3 (AdaMatch)**: Verified - Corrected venue to ICLR 2022, confirmed it unifies SSL and domain adaptation for labeled source + unlabeled target scenarios
+  - All strategies confirmed appropriate for the exact problem: labeled source domain (DBI) + unlabeled target domain (SDD)
+
+## [0.10.1] - 2026-01-21 22:46
+
+### Updated
+- `report.ipynb`: Task VI Scenario 3 - Verified and corrected strategies
+  - Added citations for MMD (Yan et al., CVPR 2017) and pseudo-labeling (Arazo et al., AAAI 2020)
+  - Replaced generic "MixMatch/FixMatch" with **AdaMatch** (Berthelot et al., 2021)
+    - AdaMatch specifically designed for domain adaptation with distribution shift
+    - Standard FixMatch/MixMatch assume same distribution for labeled/unlabeled data
+  - All strategies verified via web search to ensure accuracy
+
+## [0.10.0] - 2026-01-21 22:27
+
+### Added
+- `report.ipynb`: Task VI - How to Improve Performance on SDD? (40 marks)
+  - Discussion of strategies to improve SDD performance under three data availability scenarios
+  - **Clarification**: 10% of SDDsubset = ~123 images (SDDsubset has 1,233 images of 7 breeds)
+  - **Scenario 1**: Full DBI + high-level SDD description (no SDD data)
+    - Domain randomization via aggressive data augmentation
+    - Regularization to prevent overfitting to DBI-specific features
+    - Architecture selection for domain generalization (Swin-T, ResNeXt)
+  - **Scenario 2**: Full DBI (646 images) + 10% labeled SDD (~123 images)
+    - Fine-tuning with mixed dataset training (weighted sampling)
+    - Two-stage transfer learning (DBI pretrain -> SDD fine-tune)
+    - Domain-adversarial training with gradient reversal
+  - **Scenario 3**: Full DBI (646 images) + 10% unlabeled SDD (~123 images)
+    - Unsupervised domain adaptation (MMD, adversarial alignment)
+    - Self-training / pseudo-labeling with confidence filtering
+    - Consistency regularization (MixMatch, FixMatch)
+
+### Technical Context
+- Strategies informed by Task I findings (systematic differences between DBI and SDD)
+- Leverages Task IV results showing ResNeXt-50 has best domain generalization (+1.22% gap)
+- Builds on Task V confirmation that datasets are distinguishable with 91.84% accuracy
+
 ## [0.9.1] - 2026-01-21 18:00
 
 ### Updated
