@@ -16,6 +16,8 @@ dependencies = [
     "pandas>=2.3.3",
     "timm>=1.0.24",
     "seaborn>=0.13.2",
+    "mediapipe==0.10.21",
+    "opencv-contrib-python>=4.8.0",
 ]
 
 [project.optional-dependencies]
