@@ -18,6 +18,7 @@ dependencies = [
     "seaborn>=0.13.2",
     "mediapipe==0.10.21",
     "opencv-contrib-python>=4.8.0",
+    "torchinfo>=1.8.0",
 ]
 
 [project.optional-dependencies]
